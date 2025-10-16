@@ -1,0 +1,23 @@
+# .github/workflows/main.yml
+name: Testes e Cobertura (Coveralls)
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Configurar Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+    - name: Instalar Dependências
+      run: pip install coverage python-coveralls
+    - name: Rodar Testes e Coletar Cobertura
+      run: coverage run -m unittest teste_calculadora.py
+    - name: Enviar dados para o Coveralls
+      run: coveralls
+      env:
+        # Pega o token de segurança que configuramos antes no GitHub
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
