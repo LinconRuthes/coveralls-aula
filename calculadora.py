@@ -8,4 +8,4 @@ def subtrair(a, b):
         return a - b
     else:
         # Esta linha não será testada no nosso primeiro teste
-        return b - a
+        return b - a 
