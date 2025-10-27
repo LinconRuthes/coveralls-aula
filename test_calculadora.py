@@ -4,3 +4,7 @@ import calculadora
 class TestCalculadora(unittest.TestCase):
     def test_somar_funciona(self):
         self.assertEqual(calculadora.somar(1, 2), 3)
+
+    def test_subtrair_funciona(self):
+        self.assertEqual(calculadora.subtrair(5, 3), 2)
+        
