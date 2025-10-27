@@ -10,9 +10,10 @@ jobs:
     - name: Configurar Python 3.11 (Versão Estável)
       uses: actions/setup-python@v5
       with:
-        python-version: '3.11' # <-- CORREÇÃO CRÍTICA: Fixando a versão estável
-    - name: Instalar Dependências (coverage e coveralls)
-      run: pip install coverage python-coveralls
+        python-version: '3.11' # Corrigindo para versão estável
+    - name: Instalar Dependências (Versões Antigas Estáveis)
+      # Forçando versões conhecidas por serem compatíveis
+      run: pip install coverage==6.5.0 python-coveralls==6.1.0
     - name: Rodar Testes e Coletar Cobertura
       run: coverage run -m unittest teste_calculadora.py
     - name: Enviar dados para o Coveralls
