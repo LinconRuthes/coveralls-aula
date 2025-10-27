@@ -10,12 +10,13 @@ jobs:
     - name: Configurar Python 3.11 (Versão Estável)
       uses: actions/setup-python@v5
       with:
-        python-version: '3.11' # Fixando a versão estável
-    - name: Instalar Dependências (Versão 2.9.3 Final)
-      # Forçando as versões que resolvem o ImportError E o No matching distribution
-      run: pip install coverage==6.5.0 python-coveralls==2.9.3 
-    - name: Rodar Testes e Coletar Cobertura
-      run: coverage run -m unittest teste_calculadora.py
+        python-version: '3.11' 
+    - name: Instalar Dependências (pytest-cov)
+      # TROCANDO para o padrão moderno: pytest e pytest-cov
+      run: pip install pytest pytest-cov python-coveralls
+    - name: Rodar Testes e Coletar Cobertura (Usando pytest)
+      # Comando moderno que gera o arquivo de dados .coverage
+      run: pytest --cov=calculadora teste_calculadora.py
     - name: Enviar dados para o Coveralls
       run: coveralls
       env:

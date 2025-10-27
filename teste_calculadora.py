@@ -1,12 +1,10 @@
 import unittest
-from calculadora import somar, subtrair
+import calculadora
 
 class TestCalculadora(unittest.TestCase):
-    
-    def test_soma_simples(self):
-        # TESTE 1: Cobre a função 'somar'
-        self.assertEqual(somar(2, 3), 5)
+    def test_somar_funciona(self):
+        self.assertEqual(calculadora.somar(1, 2), 3)
 
-    def test_subtracao_caso_a_maior(self):
-        # TESTE 2: Cobre a condição 'if a > b' da função 'subtrair'
-        self.assertEqual(subtrair(5, 2), 3)
+    # Note que a função 'subtrair' ainda não tem teste aqui! 
+    # Ela será a linha vermelha no Coveralls, gerando os 88%.
+    # Para o propósito da demonstração, não a incluímos.
