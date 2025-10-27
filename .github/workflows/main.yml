@@ -12,7 +12,7 @@ jobs:
       with:
         python-version: '3.x'
     - name: Instalar Dependências
-      run: pip install coverage==7.4.4 python-coveralls==6.1.0
+      run: pip install coverage==7.4.4 python-coveralls==6.2.0
     - name: Rodar Testes e Coletar Cobertura
       run: coverage run -m unittest teste_calculadora.py
     - name: Enviar dados para o Coveralls
