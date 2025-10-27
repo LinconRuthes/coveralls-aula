@@ -11,8 +11,8 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.x'
-    - name: Instalar Dependências
-      run: pip install coverage==7.4.4 python-coveralls==6.2.0
+    - name: Instalar Dependências (Versões Corrigidas - Plano B)
+      run: pip install coverage==7.4.4 python-coveralls==2.9.3
     - name: Rodar Testes e Coletar Cobertura
       run: coverage run -m unittest teste_calculadora.py
     - name: Enviar dados para o Coveralls
