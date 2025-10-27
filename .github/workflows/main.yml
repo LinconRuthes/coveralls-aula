@@ -11,11 +11,12 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.11' 
-    - name: Instalar Dependências (Solução Definitiva)
-      # Padrão moderno que resolve dependências: pytest, pytest-cov e o pacote 'coveralls'
+    - name: Instalar Dependências (pytest-cov)
+      # Mantendo a solução definitiva que resolveu o ImportError
       run: pip install pytest pytest-cov coveralls
     - name: Rodar Testes e Coletar Cobertura (Usando pytest)
-      # Comando moderno que gera o arquivo de dados .coverage para o Coveralls
+      # CORREÇÃO: O Pytest só precisa do nome do módulo principal (calculadora) para cobertura.
+      # Ele já encontrará o test_calculadora.py automaticamente.
       run: pytest --cov=calculadora
     - name: Enviar dados para o Coveralls
       run: coveralls
